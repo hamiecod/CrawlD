@@ -57,7 +57,6 @@ function gameEngine(){
         snakeArr = [
             {x: 2, y:15}
         ]
-        gameSound.play();
     }
 
     // if you have eaten the food, increment the score and regenerate the food
@@ -68,6 +67,9 @@ function gameEngine(){
         score += 1;
         let scoreDisplay = document.querySelector('.score');
         scoreDisplay.innerHTML = "Score: "+ score;
+
+        // increasing snake speed
+        increaseSpeed();
 
         // .unshift adds a value to the beginning of the array without shif
         snakeArr.unshift({x: (snakeArr[0].x + snakeVelocity.x), y: (snakeArr[0].y + snakeVelocity.y)});
@@ -152,6 +154,11 @@ function endGame(){
     });
 }
 
+function increaseSpeed(){
+    speed = 5 + ((snakeArr.length)/2)
+    console.log(speed);
+}
+
 // main logic starts here
 document.addEventListener("DOMContentLoaded", splash);
 function splash(){
@@ -201,7 +208,7 @@ document.addEventListener('keydown', e =>{
         case "ArrowUp":
         case "w":
             // if arrow up or w
-            console.log("Up");
+            // console.log("Up");
             snakeVelocity.x = 0;
             snakeVelocity.y = -1;
             break;
@@ -209,7 +216,7 @@ document.addEventListener('keydown', e =>{
         case "ArrowDown":
         case "s":
             // if arrow down or s
-            console.log("Down");
+            // console.log("Down");
             snakeVelocity.x = 0;
             snakeVelocity.y = 1;
             break;
@@ -217,7 +224,7 @@ document.addEventListener('keydown', e =>{
         case "ArrowRight":
         case "d":
             // if arrow right or d
-            console.log("Right");
+            // console.log("Right");
             snakeVelocity.x = 1;
             snakeVelocity.y = 0;
             break;
@@ -225,7 +232,7 @@ document.addEventListener('keydown', e =>{
         case "ArrowLeft":
         case "a":
             // if arrow left or a
-            console.log("Left");
+            // console.log("Left");
             snakeVelocity.x = -1;
             snakeVelocity.y = 0;
             break;
