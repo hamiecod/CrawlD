@@ -11,7 +11,10 @@ let lastPaintTime = 0;
 let snakeArr = [
     {x: 2, y:15}
 ]
-let foodLocation = {x:13, y:15}
+let randMin= 2;
+let randMax= 16;
+// we will not be generating the number on the extreme positions to make the game a little lenient
+foodLocation = {x: (Math.round(randMin + (randMax-randMin)* Math.random())), y: (Math.round(randMin + (randMax-randMin)* Math.random()))};
 // foodLoation is not an array unlike snake arr because food is only one on the map
 
 // Game functions
@@ -55,6 +58,8 @@ function gameEngine(){
         ]
         gameSound.play();
         score=0;
+        let scoreDisplay = document.querySelector('.score')
+        scoreDisplay.innerHTML = "Score: " + score;
     }
 
     // if you have eaten the food, increment the score and regenerate the food
@@ -73,6 +78,14 @@ function gameEngine(){
         // we will not be generating the number on the extreme positions to make the game a little lenient
         foodLocation = {x: (Math.round(randMin + (randMax-randMin)* Math.random())), y: (Math.round(randMin + (randMax-randMin)* Math.random()))};
         // generates the food at a random place in between randMin and randMax
+
+        // setting new highscore
+        if (score>highScoreVal) {
+            let highScoreBox = document.querySelector('.highScore')
+            highScoreVal = score;
+            localStorage.setItem("highScore", JSON.stringify(highScoreVal));
+            highScoreBox.innerHTML = "High Score: " + highScoreVal;
+        }
     }
 
     // Moving the snake
@@ -120,6 +133,21 @@ function gameEngine(){
 }
 
 // main logic starts here
+// highScore : the high score
+// highScoreVal: the high score value
+// highScoreBox: the DOM high score container
+let highScore = localStorage.getItem("highScore");
+if(highScore === null){
+    var highScoreVal = 0;
+    localStorage.setItem("highScore", JSON.stringify(highScoreVal));
+    // sets the high score to 0
+}
+else{
+    let highScoreBox = document.querySelector('.highScore');
+    highScoreVal = JSON.parse(highScore);
+    highScoreBox.innerHTML = "High Score: " + highScore;
+}
+
 window.requestAnimationFrame(main);
 
 // game controls

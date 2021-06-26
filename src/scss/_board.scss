@@ -22,6 +22,15 @@
     font-size: 2.3rem;
 }
 
+.highScore{
+    position: absolute;
+    top: 4rem;
+    right: 5.45rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
 // snake head
 .head{
     background: linear-gradient( #333333, #dd1818);
