@@ -1,0 +1,61 @@
+.splash{
+    position: absolute;
+    top: 0vh;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    opacity: 0.9;
+    z-index: 2;
+    &__emoji{
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        font-size: 15.76456vmin;
+        top: 16vh;
+    }
+    &__heading{
+        z-index: 3;
+        color: #fff;
+        width: 100%;
+        position: absolute;
+        top: 35vh;
+        width: 100%;
+        text-align: center;
+        font-size: 15vmin;
+    }
+    &__instructions{
+        width: 100%;
+        z-index: 3;
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        top: 53vh;
+        font-size: 3.6vmin;
+    }
+    &__play{
+        z-index: 3;
+        position: absolute;
+        top: 61vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-button{
+            z-index: 4;
+            color: #fff;
+            background: linear-gradient(to right, #f953c6, #b91d73);
+            font-family: inherit;
+            outline: none;
+            border: none;
+            height: 11.2vh;
+            width: 19vw;
+            font-size: 2.7rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

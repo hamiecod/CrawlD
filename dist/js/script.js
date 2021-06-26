@@ -43,8 +43,6 @@ function isCollide(snake){
 }
 
 function gameEngine(){
-    gameSound.play();
-
     // This function has some parts
     // Part 1: Updating the snake array
     // unlike maths, javascript's axis origin is on top left
@@ -52,14 +50,14 @@ function gameEngine(){
         gameSound.pause();
         gameOverSound.play();
         snakeVelocity = {x: 0, y: 0};
-        alert("Game Over. Press any key to play again!");
+        
+        // end game screen
+        endGame();
+
         snakeArr = [
             {x: 2, y:15}
         ]
         gameSound.play();
-        score=0;
-        let scoreDisplay = document.querySelector('.score')
-        scoreDisplay.innerHTML = "Score: " + score;
     }
 
     // if you have eaten the food, increment the score and regenerate the food
@@ -132,7 +130,51 @@ function gameEngine(){
     board.appendChild(foodElement);
 }
 
+function endGame(){
+    let end = document.querySelector('.end');
+    let endScore = document.querySelector('.end__score');
+    let retryBtn = document.querySelector('.end__retry-button');
+
+    end.classList.remove('hidden');
+    end.classList.add('visible');
+    gameSound.pause();
+
+    endScore.innerHTML = "Score: " + score;
+
+    retryBtn.addEventListener('click', ()=>{
+        end.classList.add('hidden');
+        end.classList.remove('visible');
+        gameSound.play();
+
+        score=0;
+        let scoreDisplay = document.querySelector('.score')
+        scoreDisplay.innerHTML = "Score: " + score;
+    });
+}
+
 // main logic starts here
+document.addEventListener("DOMContentLoaded", splash);
+function splash(){
+    gameSound.pause();
+    let end = document.querySelector('.end');
+    let splash= document.querySelector('.splash');
+    let playBtn= document.querySelector('.splash__play-button');
+
+    splash.classList.add('visible');
+    splash.classList.remove('hidden');
+    end.classList.add('hidden');
+    end.classList.remove('visible');
+
+    playBtn.addEventListener("click", ()=>{
+        score=0;
+        let scoreDisplay = document.querySelector('.score')
+        scoreDisplay.innerHTML = "Score: " + score;
+        splash.classList.remove('visible');
+        splash.classList.add('hidden');
+        gameSound.play();
+    });
+}
+
 // highScore : the high score
 // highScoreVal: the high score value
 // highScoreBox: the DOM high score container

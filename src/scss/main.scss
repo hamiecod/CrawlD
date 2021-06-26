@@ -1,4 +1,4 @@
-@import './config', './fonts';
+@import './config', './fonts', './utility', './splash';
 
 main{
     min-height: 100vh;
@@ -12,3 +12,5 @@ main{
 
     @import './board';
 }
+
+@import './end';
