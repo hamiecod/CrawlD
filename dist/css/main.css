@@ -39,14 +39,23 @@ main .board {
 }
 
 main .head {
-  background: red;
+  background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#dd1818));
+  background: linear-gradient(#333333, #dd1818);
+  border: .18vmin solid white;
+  border-radius: 0.7rem;
+  -webkit-transform: scale(1.05644);
+          transform: scale(1.05644);
 }
 
 main .snake {
-  background: purple;
+  background: -webkit-gradient(linear, left top, left bottom, from(#8e2de2), to(#4a00e0));
+  background: linear-gradient(#8e2de2, #4a00e0);
+  border: .25vmin solid white;
+  border-radius: 0.7rem;
 }
 
 main .food {
-  background: yellow;
+  background: url(/assets/images/food.png);
+  background-size: cover;
 }
 /*# sourceMappingURL=main.css.map */

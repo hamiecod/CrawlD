@@ -15,14 +15,21 @@
 
 // snake head
 .head{
-    background: red;
+    background: linear-gradient( #333333, #dd1818);
+    border: .18vmin solid white;
+    border-radius: 0.7rem;
+    transform: scale(1.05644);
 }
 
 // snake body
 .snake{
-    background: purple;
+    background: linear-gradient(#8e2de2, #4a00e0);
+    // background: linear-gradient(#0052d4, #4364f7, #6fb1fc);
+    border: .25vmin solid white;
+    border-radius: 0.7rem;
 }
 
 .food{
-    background: yellow;
+    background: url(/assets/images/food.png);
+    background-size: cover;
 }

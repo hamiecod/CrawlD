@@ -60,6 +60,7 @@ function gameEngine(){
     // if you have eaten the food, increment the score and regenerate the food
     if(snakeArr[0].y === foodLocation.y && snakeArr[0].x === foodLocation.x){
         foodSound.play();
+        score += 1;
         // .unshift adds a value to the beginning of the array without shif
         snakeArr.unshift({x: (snakeArr[0].x + snakeVelocity.x), y: (snakeArr[0].y + snakeVelocity.y)});
         let randMin= 2;
